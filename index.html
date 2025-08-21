@@ -30,26 +30,25 @@
     <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 transition-all duration-300" id="main-header">
         <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
-                <span class="text-2xl font-bold text-black tracking-wider">رَش‌وِنت</span>
+                <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" class="h-10">
             </a>
-            <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-                <a href="#events" class="text-gray-700 hover:text-black transition duration-300">رویدادها</a>
-                <a href="#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
-                <a href="#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
-                <a href="#contact" class="text-gray-700 hover:text-black transition duration-300">تماس</a>
+            <div class="flex items-center space-x-8 space-x-reverse">
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#events" class="text-gray-700 hover:text-black transition duration-300">رویدادها</a>
+                    <a href="#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
+                    <a href="#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
+                    <a href="#contact" class="text-gray-700 hover:text-black transition duration-300">تماس</a>
+                    <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
+                        <img src="https://cliply.co/wp-content/uploads/2019/04/371903520_SOCIAL_ICONS_INSTAGRAM-500x500.png" alt="Instagram" class="h-6 w-6">
+                    </a>
+                </div>
+                <div class="md:hidden flex space-x-4 space-x-reverse">
+                    <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
+                        <img src="https://cliply.co/wp-content/uploads/2019/04/371903520_SOCIAL_ICONS_INSTAGRAM-500x500.png" alt="Instagram" class="h-11 w-11">
+                    </a>
+                </div>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden flex items-center text-black">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-gray-200">
-            <a href="#events" class="block py-2 text-gray-700 hover:text-black transition duration-300">رویدادها</a>
-            <a href="#news" class="block py-2 text-gray-700 hover:text-black transition duration-300">اخبار</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-black transition duration-300">درباره ما</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-black transition duration-300">تماس</a>
-        </div>
     </header>
 
     <main>
@@ -322,33 +321,6 @@
         </div>
     </footer>
 
-    <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.getElementById('main-header');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                header.style.transform = 'translateY(0)';
-                return;
-            }
-            
-            if (currentScroll > lastScroll) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            lastScroll = currentScroll;
-        });
-    </script>
 
 </body>
 </html>
