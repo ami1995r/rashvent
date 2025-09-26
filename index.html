@@ -38,20 +38,37 @@
                     <a href="#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
                     <a href="#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
                     <a href="#contact" class="text-gray-700 hover:text-black transition duration-300">تماس</a>
+                </div>
+                <div class="flex items-center gap-4">
                     <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
                         <img src="https://pixsector.com/cache/200e7bcc/av16efeffeed4418c90c1.png" alt="Instagram" class="h-9 w-9 filter grayscale brightness-0">
                     </a>
-                </div>
-                <div class="md:hidden flex items-center space-x-4 space-x-reverse">
-                    <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
-                        <img src="https://pixsector.com/cache/200e7bcc/av16efeffeed4418c90c1.png" alt="Instagram" class="h-9 w-9 filter grayscale brightness-0">
-                    </a>
-                </div>
-</div>
+                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full absolute left-0 right-0 shadow-lg" id="mobile-menu">
+            <div class="container mx-auto px-6 py-3">
+                <a href="#events" class="block py-2 text-gray-700 hover:text-black transition duration-300">رویدادها</a>
+                <a href="#news" class="block py-2 text-gray-700 hover:text-black transition duration-300">اخبار</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-black transition duration-300">درباره ما</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-black transition duration-300">تماس</a>
+</div>
+        </div>
     </header>
 
-    <main>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+<main>
         <!-- Hero Section -->
         <section class="container mx-auto px-6 py-20 md:py-32 text-center">
             <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" class="h-35 w-52 md:h-40 md:w-64 mx-auto mb-10">
@@ -61,7 +78,7 @@
             </p>
         </section>
 
-        <!-- Main Content Section (Events and News) -->
+         <!-- Main Content Section (Events and News) -->
         <section class="container mx-auto px-6 py-16">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
@@ -277,6 +294,7 @@
             </div>
         </section>
 
+               
         <!-- About Section -->
         <section id="about" class="py-16 sm:py-24 bg-gray-50">
             <div class="container mx-auto px-6">
@@ -315,7 +333,7 @@
                 </div>
 
                 <div class="mt-8 pt-8 border-t border-gray-200">
-                    <p class="text-gray-500">&copy; 2025 - تمامی حقوق برای وب‌سایت رَش‌وِنت محفوظ است.</p>
+                    <p class="text-gray-500">&copy; 2025 - تمامی حقوق برای وب‌سایت رَش‌وِنت و گروه دوباره محفوظ است.</p>
                 </div>
             </div>
         </div>
