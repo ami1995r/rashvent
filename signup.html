@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عضویت در رَش‌وِنت | پلتفرم هنر و فرهنگ گیلان</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .art-interest {
+            transition: all 0.3s ease;
+        }
+        .art-interest:hover {
+            transform: translateY(-2px);
+        }
+        .art-interest.selected {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .password-toggle {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .password-toggle:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <!-- Header Section -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" class="h-12">
+            </a>
+            <div class="flex items-center space-x-8 space-x-reverse">
+                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="index.html" class="text-gray-700 hover:text-black transition duration-300">صفحه اصلی</a>
+                    <a href="index.html#events" class="text-gray-700 hover:text-black transition duration-300">رویدادها</a>
+                    <a href="index.html#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
+                        <img src="https://pixsector.com/cache/200e7bcc/av16efeffeed4418c90c1.png" alt="Instagram" class="h-9 w-9 filter grayscale brightness-0">
+                    </a>
+                    <a href="https://t.me/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946547.png" alt="Telegram" class="h-6 w-6 filter grayscale brightness-0">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Registration Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-md mx-auto">
+                    <!-- Logo -->
+                    <div class="text-center mb-8">
+                        <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" 
+                             class="h-20 w-40 mx-auto mb-6">
+                        <h1 class="text-3xl font-bold text-black">عضویت در رَش‌وِنت</h1>
+                        <p class="text-gray-600 mt-2">به خانواده هنری گیلان بپیوندید</p>
+                    </div>
+
+                    <!-- Login Section for Existing Users -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-medium text-blue-800">قبلاً عضو شده‌اید؟</h3>
+                                <p class="text-sm text-blue-600 mt-1">وارد حساب کاربری خود شوید</p>
+                            </div>
+                            <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-sm font-medium">
+                                ورود به حساب
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                        <!-- Name Fields -->
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">نام</label>
+                                <input type="text" id="firstName" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                                       placeholder="نام خود را وارد کنید" required>
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">نام خانوادگی</label>
+                                <input type="text" id="lastName" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                                       placeholder="نام خانوادگی خود را وارد کنید" required>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">ایمیل</label>
+                            <input type="email" id="email" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                                   placeholder="example@email.com" required>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-4">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">شماره تلفن</label>
+                            <input type="tel" id="phone" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                                   placeholder="09xxxxxxxxx" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-6">
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">رمز عبور</label>
+                            <div class="relative">
+                                <input type="password" id="password" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 pr-10"
+                                       placeholder="رمز عبور خود را وارد کنید" required>
+                                <button type="button" class="password-toggle absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                    <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Art Interests - New Design -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">حوزه‌های مورد علاقه در هنر</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" class="art-interest border border-gray-300 rounded-lg p-3 text-center hover:border-blue-500 hover:bg-blue-50 transition duration-200" data-value="theater">
+                                    <div class="text-black mb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-medium">تئاتر</span>
+                                </button>
+                                
+                                <button type="button" class="art-interest border border-gray-300 rounded-lg p-3 text-center hover:border-black hover:bg-gray-50 transition duration-200" data-value="cinema">
+                                    <div class="text-black mb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-medium">سینما</span>
+                                </button>
+                                
+                                <button type="button" class="art-interest border border-gray-300 rounded-lg p-3 text-center hover:border-black hover:bg-gray-50 transition duration-200" data-value="music">
+                                    <div class="text-black mb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-medium">موسیقی</span>
+                                </button>
+                                
+                                <button type="button" class="art-interest border border-gray-300 rounded-lg p-3 text-center hover:border-black hover:bg-gray-50 transition duration-200" data-value="exhibition">
+                                    <div class="text-black mb-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-medium">نمایشگاه</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="artInterests" name="artInterests">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            تکمیل عضویت
+                        </button>
+                    </form>
+
+                    <!-- Additional Info -->
+                    <div class="text-center mt-8">
+                        <p class="text-sm text-gray-500">
+                            با عضویت در رَش‌وِنت، از آخرین رویدادهای هنری گیلان مطلع شوید
+                            و در جامعه هنری استان فعال باشید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-xl font-bold text-black mb-3">با ما در ارتباط باشید</h3>
+                <a href="mailto:info@rashvent.com" class="text-base text-black hover:text-black/70 transition duration-300 inline-flex items-center gap-1">
+                    info@rashvent.com
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </a>
+
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <p class="text-xs text-gray-500">&copy; 2025 - تمامی حقوق برای وب‌سایت رَش‌وِنت و گروه دوباره محفوظ است.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Art Interests Selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const artInterests = document.querySelectorAll('.art-interest');
+            const selectedInterests = new Set();
+            
+            artInterests.forEach(button => {
+                button.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    
+                    if (selectedInterests.has(value)) {
+                        selectedInterests.delete(value);
+                        this.classList.remove('selected');
+                        this.classList.remove('bg-blue-600', 'text-white');
+                        // Reset icon color to black
+                        const icon = this.querySelector('svg');
+                        icon.classList.remove('text-white');
+                        icon.classList.add('text-black');
+                    } else {
+                        selectedInterests.add(value);
+                        this.classList.add('selected');
+                        this.classList.add('bg-blue-600', 'text-white');
+                        this.classList.remove('hover:border-blue-500', 'hover:bg-blue-50');
+                        this.classList.remove('hover:border-black', 'hover:bg-gray-50');
+                        // Change icon color to white when selected
+                        const icon = this.querySelector('svg');
+                        icon.classList.remove('text-black');
+                        icon.classList.add('text-white');
+                    }
+                    
+                    // Update hidden input
+                    document.getElementById('artInterests').value = Array.from(selectedInterests).join(',');
+                });
+            });
+
+            // Password Toggle
+            const passwordToggle = document.querySelector('.password-toggle');
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            const eyeOffIcon = document.getElementById('eye-off-icon');
+
+            passwordToggle.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.add('hidden');
+                    eyeOffIcon.classList.remove('hidden');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.remove('hidden');
+                    eyeOffIcon.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
