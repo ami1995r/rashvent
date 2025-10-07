@@ -13,40 +13,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* اعمال فونت وزیرمتن به کل صفحه */
         body {
             font-family: 'Vazirmatn', sans-serif;
         }
-        /* استایل برای اسکرول نرم */
         html {
             scroll-behavior: smooth;
-        }
-        
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fade-in 1.2s ease-out forwards;
         }
     </style>
 </head>
 <body class="bg-white text-black">
 
     <!-- Header Section -->
-    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 transition-all duration-300" id="main-header">
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 transition-all duration-300">
         <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
                 <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" class="h-12">
             </a>
             <div class="flex items-center space-x-8 space-x-reverse">
                 <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-    <a href="#events" class="text-gray-700 hover:text-black transition duration-300">رویدادها</a>
-    <a href="#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
-    <a href="#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
-    <a href="#contact" class="text-gray-700 hover:text-black transition duration-300">تماس</a>
-    <a href="signup.html" class="text-gray-700 hover:text-black transition duration-300">عضویت</a>
-     </div>
+                    <a href="#events" class="text-gray-700 hover:text-black transition duration-300">رویدادها</a>
+                    <a href="#news" class="text-gray-700 hover:text-black transition duration-300">اخبار</a>
+                    <a href="#about" class="text-gray-700 hover:text-black transition duration-300">درباره ما</a>
+                    <a href="#contact" class="text-gray-700 hover:text-black transition duration-300">تماس</a>
+                    <a href="signup.html" class="text-gray-700 hover:text-black transition duration-300">عضویت</a>
+                </div>
                 <div class="flex items-center gap-4">
                     <a href="https://instagram.com/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
                         <img src="https://pixsector.com/cache/200e7bcc/av16efeffeed4418c90c1.png" alt="Instagram" class="h-9 w-9 filter grayscale brightness-0">
@@ -54,310 +44,259 @@
                     <a href="https://t.me/rashvent" target="_blank" class="text-gray-700 hover:text-black transition duration-300">
                         <img src="https://cdn-icons-png.flaticon.com/512/1946/1946547.png" alt="Telegram" class="h-6 w-6 filter grayscale brightness-0">
                     </a>
-                    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </nav>
-
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white w-full absolute left-0 right-0 shadow-lg" id="mobile-menu">
-    <div class="container mx-auto px-6 py-3">
-        <a href="#events" class="block py-2 text-gray-700 hover:text-black transition duration-300">رویدادها</a>
-        <a href="#news" class="block py-2 text-gray-700 hover:text-black transition duration-300">اخبار</a>
-        <a href="#about" class="block py-2 text-gray-700 hover:text-black transition duration-300">درباره ما</a>
-        <a href="#contact" class="block py-2 text-gray-700 hover:text-black transition duration-300">تماس</a>
-        <a href="signup.html" class="block py-2 text-gray-700 hover:text-black transition duration-300">عضویت</a>
-    </div>
-</div>
     </header>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
 
     <main>
         <!-- Hero Section -->
         <section class="relative py-20 flex items-center justify-center bg-white overflow-hidden">
-            <!-- Hero content -->
             <div class="container mx-auto px-6 text-center">
-                <div class="animate-fade-in">
+                <div>
                     <img src="https://s6.uupload.ir/files/rashvent_copy_n15h.png" alt="رَش‌وِنت" 
-                         class="h-35 w-52 md:h-40 md:w-64 mx-auto mb-10 transform hover:scale-105 transition-transform duration-500">
+                         class="h-35 w-52 md:h-40 md:w-64 mx-auto mb-10">
                     
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-black tracking-tight leading-tight">
-                        <span class="inline-block">
-                            پلتفرم هنر و فرهنگ گیلان
-                        </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-black">
+                        پلتفرم هنر و فرهنگ گیلان
                     </h1>
                     
-                    <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 mb-8 leading-relaxed">
+                    <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 mb-8">
                         دریچه‌ای به جهان هنرهای نمایشی، تجسمی و موسیقی در قلب شمال ایران
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                        <a href="#events" class="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <a href="#events" class="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                             رویدادها
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                            </svg>
+                        </a>
+                        <a href="signup.html" class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full font-medium hover:bg-blue-50 transition-all duration-300">
+                            عضویت در رش‌ونت
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content Section (Events and News) -->
+        <!-- Main Content Section -->
         <section class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
 
                 <!-- Events Column -->
                 <div id="events" class="lg:col-span-2">
                     <h2 class="text-3xl font-bold text-black border-b-2 border-black pb-3 mb-6">تقویم رویدادها</h2>
-                    <!-- Events List - Interactive Cards -->
-                    <div class="grid grid-cols-1 gap-4">
-                        <!-- Theater Events Scrollable Container -->
-                        <div class="overflow-x-auto pb-2">
-                            <div class="flex space-x-3 space-x-reverse min-w-max">
-                                <!-- Theater Event 1 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">مرداد</p>
-                                            <p class="text-xl font-bold mt-1">۲۵</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 mb-1">تئاتر</span>
-                                            <h3 class="text-base font-bold">نمایش «مکبث»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                تالار مرکزی رشت
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۱۸:۳۰
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                    
+                    <!-- راهنمای ویرایش رویدادها -->
+                    <!--
+                    برای اضافه کردن رویداد جدید:
+                    1. یک دسته جدید در اینجا ایجاد کن (مثل تئاتر، سینما، etc)
+                    2. از قالب زیر برای هر رویداد استفاده کن:
+                    
+                    <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                        <div class="relative z-10 flex items-start gap-3">
+                            <div class="text-center bg-white group-hover:bg-[COLOR]-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                <p class="text-xs group-hover:text-white/90">ماه</p>
+                                <p class="text-xl font-bold mt-1">روز</p>
+                            </div>
+                            <div class="flex-1">
+                                <span class="inline-block px-2 py-1 text-xs rounded-full bg-[COLOR]-100 text-[COLOR]-800 mb-1">دسته</span>
+                                <h3 class="text-base font-bold">عنوان رویداد</h3>
+                                <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                    مکان رویداد
+                                </p>
+                                <p class="text-xs text-gray-600 flex items-center gap-1">
+                                    زمان رویداد
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    -->
 
-                                <!-- Theater Event 2 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">مرداد</p>
-                                            <p class="text-xl font-bold mt-1">۲۷</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 mb-1">تئاتر</span>
-                                            <h3 class="text-base font-bold">نمایش «هملت»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                سالن فرهنگ
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۱۹:۰۰
-                                            </p>
-                                        </div>
+                    <!-- تئاتر -->
+                    <div class="overflow-x-auto pb-2 mb-4">
+                        <div class="flex space-x-3 space-x-reverse min-w-max">
+                             <!-- رویداد 1 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مهر</p>
+                                        <p class="text-xl font-bold mt-1">15</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 mb-1">تئاتر</span>
+                                        <h3 class="text-base font-bold">نمایش «به‌شب رسانی»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            تماشاخانه نارون
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۱9:۳۰
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Cinema Events Scrollable Container -->
-                        <div class="overflow-x-auto pb-2">
-                            <div class="flex space-x-3 space-x-reverse min-w-max">
-                                <!-- Cinema Event 1 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-red-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">مرداد</p>
-                                            <p class="text-xl font-bold mt-1">۲۹</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 mb-1">سینما</span>
-                                            <h3 class="text-base font-bold">«خاک»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                سینما سپهر
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۱۹:۰۰
-                                            </p>
-                                        </div>
+                            <!-- رویداد 1 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مرداد</p>
+                                        <p class="text-xl font-bold mt-1">۲۵</p>
                                     </div>
-                                </div>
-
-                                <!-- Cinema Event 2 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-red-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">شهریور</p>
-                                            <p class="text-xl font-bold mt-1">۲</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 mb-1">سینما</span>
-                                            <h3 class="text-base font-bold">«متری شیش و نیم»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                سینما قدس
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۲۱:۰۰
-                                            </p>
-                                        </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 mb-1">تئاتر</span>
+                                        <h3 class="text-base font-bold">نمایش «مکبث»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            تالار مرکزی رشت
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۱۸:۳۰
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Concerts Scrollable Container -->
-                        <div class="overflow-x-auto pb-2">
-                            <div class="flex space-x-3 space-x-reverse min-w-max">
-                                <!-- Concert Event 1 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-green-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">مرداد</p>
-                                            <p class="text-xl font-bold mt-1">۲۸</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 mb-1">کنسرت</span>
-                                            <h3 class="text-base font-bold">کنسرت «دامون»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                سالن نامجو
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۲۱:۰۰
-                                            </p>
-                                        </div>
+                            <!-- رویداد 2 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مرداد</p>
+                                        <p class="text-xl font-bold mt-1">۲۷</p>
                                     </div>
-                                </div>
-
-                                <!-- Concert Event 2 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-green-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">شهریور</p>
-                                            <p class="text-xl font-bold mt-1">۵</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 mb-1">کنسرت</span>
-                                            <h3 class="text-base font-bold">کنسرت «تال»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                تالار مرکزی رشت
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                ۲۰:۳۰
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Exhibitions Scrollable Container -->
-                        <div class="overflow-x-auto pb-2">
-                            <div class="flex space-x-3 space-x-reverse min-w-max">
-                                <!-- Exhibition Event 1 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">مرداد</p>
-                                            <p class="text-xl font-bold mt-1">۳۰</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 mb-1">نمایشگاه</span>
-                                            <h3 class="text-base font-bold">«رنگ‌های شمال»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                نگارخانه مارلیک
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                تا ۱۰ شهریور
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Exhibition Event 2 -->
-                                <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50 shadow-sm hover:shadow-md overflow-hidden">
-                                    <div class="relative z-10 flex items-start gap-3">
-                                        <div class="text-center bg-white group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
-                                            <p class="text-xs group-hover:text-white/90">شهریور</p>
-                                            <p class="text-xl font-bold mt-1">۱۵</p>
-                                        </div>
-                                        <div class="flex-1">
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 mb-1">نمایشگاه</span>
-                                            <h3 class="text-base font-bold">«مینیاتورهای گیلانی»</h3>
-                                            <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                </svg>
-                                                موزه رشت
-                                            </p>
-                                            <p class="text-xs text-gray-600 flex items-center gap-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                </svg>
-                                                تا ۳۰ شهریور
-                                            </p>
-                                        </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 mb-1">تئاتر</span>
+                                        <h3 class="text-base font-bold">نمایش «هملت»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            سالن فرهنگ
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۱۹:۰۰
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- سینما -->
+                    <div class="overflow-x-auto pb-2 mb-4">
+                        <div class="flex space-x-3 space-x-reverse min-w-max">
+                            <!-- رویداد 1 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-red-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مرداد</p>
+                                        <p class="text-xl font-bold mt-1">۲۹</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 mb-1">سینما</span>
+                                        <h3 class="text-base font-bold">«خاک»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            سینما سپهر
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۱۹:۰۰
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- رویداد 2 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-red-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">شهریور</p>
+                                        <p class="text-xl font-bold mt-1">۲</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 mb-1">سینما</span>
+                                        <h3 class="text-base font-bold">«متری شیش و نیم»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            سینما قدس
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۲۱:۰۰
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- کنسرت -->
+                    <div class="overflow-x-auto pb-2 mb-4">
+                        <div class="flex space-x-3 space-x-reverse min-w-max">
+                            <!-- رویداد 1 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-green-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مرداد</p>
+                                        <p class="text-xl font-bold mt-1">۲۸</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 mb-1">کنسرت</span>
+                                        <h3 class="text-base font-bold">کنسرت «دامون»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            سالن نامجو
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            ۲۱:۰۰
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نمایشگاه -->
+                    <div class="overflow-x-auto pb-2">
+                        <div class="flex space-x-3 space-x-reverse min-w-max">
+                            <!-- رویداد 1 -->
+                            <div class="group relative p-3 border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded-lg min-w-[280px] bg-white hover:bg-gray-50">
+                                <div class="relative z-10 flex items-start gap-3">
+                                    <div class="text-center bg-white group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 rounded-lg p-2 w-14 flex-shrink-0 shadow-sm">
+                                        <p class="text-xs group-hover:text-white/90">مرداد</p>
+                                        <p class="text-xl font-bold mt-1">۳۰</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="inline-block px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 mb-1">نمایشگاه</span>
+                                        <h3 class="text-base font-bold">«رنگ‌های شمال»</h3>
+                                        <p class="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                            نگارخانه مارلیک
+                                        </p>
+                                        <p class="text-xs text-gray-600 flex items-center gap-1">
+                                            تا ۱۰ شهریور
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- News Column -->
                 <aside id="news" class="lg:col-span-1">
                     <h2 class="text-3xl font-bold text-black border-b-2 border-black pb-3 mb-6">آخرین اخبار</h2>
+                    
+                    <!-- راهنمای ویرایش اخبار -->
+                    <!--
+                    برای اضافه کردن خبر جدید:
+                    از قالب زیر استفاده کن:
+                    
+                    <div class="news-item group p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <a href="#" class="block">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-xs px-2 py-1 bg-[COLOR]-100 text-[COLOR]-800 rounded-full">دسته</span>
+                                    <span class="text-xs text-gray-400">زمان انتشار</span>
+                                </div>
+                                <h3 class="text-base font-bold mb-1 group-hover:text-blue-600 transition-colors duration-300">عنوان خبر</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">متن خلاصه خبر</p>
+                            </div>
+                        </a>
+                    </div>
+                    -->
+
                     <div class="space-y-4">
-                        <!-- News Item 1 -->
+                        <!-- خبر 1 -->
                         <div class="news-item group p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
                             <a href="#" class="block">
                                 <div>
@@ -366,12 +305,12 @@
                                         <span class="text-xs text-gray-400">۲ روز پیش</span>
                                     </div>
                                     <h3 class="text-base font-bold mb-1 group-hover:text-blue-600 transition-colors duration-300">فراخوان جشنواره تئاتر استانی گیلان منتشر شد</h3>
-                                    <p class="text-xs text-gray-600 leading-relaxed">مهلت ارسال آثار تا پایان شهریور ماه تمدید شد. این جشنواره با محوریت نمایش‌های بومی برگزار می‌شود.</p>
+                                    <p class="text-xs text-gray-600 leading-relaxed">مهلت ارسال آثار تا پایان شهریور ماه تمدید شد.</p>
                                 </div>
                             </a>
                         </div>
                         
-                        <!-- News Item 2 -->
+                        <!-- خبر 2 -->
                         <div class="news-item group p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
                             <a href="#" class="block">
                                 <div>
@@ -385,7 +324,7 @@
                             </a>
                         </div>
                         
-                        <!-- News Item 3 -->
+                        <!-- خبر 3 -->
                         <div class="news-item group p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md">
                             <a href="#" class="block">
                                 <div>
@@ -393,7 +332,7 @@
                                         <span class="text-xs px-2 py-1 bg-purple-100 text-purple-800 rounded-full">موسیقی</span>
                                         <span class="text-xs text-gray-400">۶ روز پیش</span>
                                     </div>
-                                    <h3 class="text-base font-bold mb-1 group-hover:text-blue-600 transition-colors duration-300">آلبوم جدید گروه موسیقی «تال» به زودی منتشر می‌شود</h3>
+                                    <h3 class="text-base font-bold mb-1 group-hover:text-blue-600 transition-colors duration-300">آلبوم جدید گروه موسیقی «تال» منتشر شد</h3>
                                     <p class="text-xs text-gray-600 leading-relaxed">این آلبوم شامل قطعاتی با الهام از موسیقی تالشی است.</p>
                                 </div>
                             </a>
@@ -426,9 +365,6 @@
                 <p class="mb-4 text-sm">برای همکاری و اطلاع‌رسانی رویدادهای خود، به ما ایمیل بزنید.</p>
                 <a href="mailto:info@rashvent.com" class="text-base text-black hover:text-black/70 transition duration-300 inline-flex items-center gap-1">
                     info@rashvent.com
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
                 </a>
 
                 <div class="mt-8 mb-6">
@@ -447,5 +383,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>
