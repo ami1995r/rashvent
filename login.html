@@ -23,6 +23,15 @@
         .password-toggle:hover {
             color: #3b82f6;
         }
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="bg-white text-black">
@@ -65,6 +74,11 @@
                         <p class="text-gray-600 mt-2">خوش آمدید به رَش‌وِنت</p>
                     </div>
 
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-message">
+                        ✅ ورود با موفقیت انجام شد! در حال انتقال به صفحه اصلی...
+                    </div>
+
                     <!-- Registration Section for New Users -->
                     <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                         <div class="flex items-center justify-between">
@@ -79,14 +93,13 @@
                     </div>
 
                     <!-- Login Form -->
-                    <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <form id="loginForm" class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                         <!-- Phone Number -->
                         <div class="mb-4">
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">شماره موبایل</label>
                             <input type="tel" id="phone" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                                    placeholder="09xxxxxxxxx"
-                                   value=""
                                    required>
                         </div>
 
@@ -116,13 +129,13 @@
                                 <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
                                 <span class="mr-2 text-sm text-gray-700">مرا به خاطر بسپار</span>
                             </label>
-                            <a href="forgot-password.html" class="text-sm text-blue-600 hover:text-blue-700">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700">
                                 رمز عبور را فراموش کرده‌اید؟
                             </a>
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" 
+                        <button type="submit" id="submitBtn"
                                 class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                             ورود به حساب
                         </button>
@@ -159,6 +172,41 @@
     </footer>
 
     <script>
+        // مدیریت فرم ورود
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            
+            // نمایش loading
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'در حال ورود...';
+            submitBtn.disabled = true;
+            
+            // شبیه‌سازی پردازش
+            setTimeout(() => {
+                // ذخیره اطلاعات کاربر در localStorage
+                const userData = {
+                    phone: phone,
+                    isLoggedIn: true,
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('rashvent_user', JSON.stringify(userData));
+                
+                // نمایش پیام موفقیت
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // انتقال به صفحه اصلی بعد از 2 ثانیه
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                
+            }, 1000);
+        });
+
         // Password Toggle
         document.addEventListener('DOMContentLoaded', function() {
             const passwordToggle = document.querySelector('.password-toggle');
@@ -177,6 +225,15 @@
                     eyeOffIcon.classList.add('hidden');
                 }
             });
+
+            // چک کردن اگر کاربر قبلاً لاگین کرده
+            const savedUser = localStorage.getItem('rashvent_user');
+            if (savedUser) {
+                const user = JSON.parse(savedUser);
+                if (user.isLoggedIn) {
+                    console.log('کاربر قبلاً وارد شده:', user.phone);
+                }
+            }
         });
     </script>
 
