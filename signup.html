@@ -280,6 +280,93 @@
                 }
             });
         });
+
+
+<!-- قبل از بسته شدن تگ body -->
+<script>
+// آدرس اسکریپت رو اینجا بذار
+const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // جمع‌آوری داده‌ها
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        artInterests: document.getElementById('artInterests').value
+    };
+    
+    // نمایش loading
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'در حال ثبت...';
+    submitBtn.disabled = true;
+    
+    try {
+        // ارسال به گوگل شیت
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            alert('✅ ثبت‌نام با موفقیت انجام شد!');
+            window.location.href = 'login.html';
+        } else {
+            alert('❌ خطا در ثبت‌نام: ' + result.message);
+        }
+        
+    } catch (error) {
+        alert('❌ خطا در ارتباط با سرور');
+        console.error('Error:', error);
+    } finally {
+        // بازگرداندن دکمه به حالت عادی
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+// مدیریت انتخاب حوزه‌های هنری
+document.addEventListener('DOMContentLoaded', function() {
+    const artInterests = document.querySelectorAll('.art-interest');
+    const selectedInterests = new Set();
+    const interestsInput = document.getElementById('artInterests');
+    
+    artInterests.forEach(button => {
+        button.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            
+            if (selectedInterests.has(value)) {
+                selectedInterests.delete(value);
+                this.classList.remove('selected', 'bg-blue-600', 'text-white');
+                const icon = this.querySelector('svg');
+                icon.classList.remove('text-white');
+                icon.classList.add('text-black');
+            } else {
+                selectedInterests.add(value);
+                this.classList.add('selected', 'bg-blue-600', 'text-white');
+                this.classList.remove('hover:border-blue-500', 'hover:bg-blue-50');
+                const icon = this.querySelector('svg');
+                icon.classList.remove('text-black');
+                icon.classList.add('text-white');
+            }
+            
+            interestsInput.value = Array.from(selectedInterests).join(', ');
+        });
+    });
+});
+
+
+        
     </script>
 
 </body>
