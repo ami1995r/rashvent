@@ -16,8 +16,12 @@
         body {
             font-family: 'Vazirmatn', sans-serif;
         }
-        html {
-            scroll-behavior: smooth;
+        .password-toggle {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .password-toggle:hover {
+            color: #3b82f6;
         }
         .art-interest {
             transition: all 0.3s ease;
@@ -25,17 +29,14 @@
         .art-interest:hover {
             transform: translateY(-2px);
         }
-        .art-interest.selected {
-            background-color: #3b82f6;
+        .success-message {
+            display: none;
+            background: #10b981;
             color: white;
-            border-color: #3b82f6;
-        }
-        .password-toggle {
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .password-toggle:hover {
-            color: #3b82f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -79,6 +80,11 @@
                         <p class="text-gray-600 mt-2">به خانواده هنری گیلان بپیوندید</p>
                     </div>
 
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-message">
+                        ✅ ثبت‌نام با موفقیت انجام شد! در حال انتقال به صفحه ورود...
+                    </div>
+
                     <!-- Login Section for Existing Users -->
                     <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                         <div class="flex items-center justify-between">
@@ -93,7 +99,7 @@
                     </div>
 
                     <!-- Registration Form -->
-                    <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <form id="signupForm" class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                         <!-- Name Fields -->
                         <div class="grid grid-cols-2 gap-4 mb-4">
                             <div>
@@ -120,7 +126,7 @@
 
                         <!-- Phone Number -->
                         <div class="mb-4">
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">شماره تلفن</label>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">شماره موبایل</label>
                             <input type="tel" id="phone" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                                    placeholder="09xxxxxxxxx" required>
@@ -145,7 +151,7 @@
                             </div>
                         </div>
 
-                        <!-- Art Interests - New Design -->
+                        <!-- Art Interests -->
                         <div class="mb-6">
                             <label class="block text-sm font-medium text-gray-700 mb-3">حوزه‌های مورد علاقه در هنر</label>
                             <div class="grid grid-cols-2 gap-3">
@@ -190,7 +196,7 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" 
+                        <button type="submit" id="submitBtn"
                                 class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                             تکمیل عضویت
                         </button>
@@ -228,10 +234,69 @@
     </footer>
 
     <script>
-        // Art Interests Selection
+        // آدرس اسکریپت گوگل شما
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJ1LJzarygrxnDbXYflNbH5MOf5dPmGm87rghzRSPyTUFIZD1ZGLC2u3ULq2PerA/exec';
+
+        // مدیریت فرم عضویت
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // جمع‌آوری داده‌ها
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                artInterests: document.getElementById('artInterests').value
+            };
+            
+            // نمایش loading
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'در حال ثبت...';
+            submitBtn.disabled = true;
+            
+            try {
+                // ارسال به گوگل شیت
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    // نمایش پیام موفقیت
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // انتقال به صفحه ورود بعد از 2 ثانیه
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                    
+                } else {
+                    alert('❌ خطا در ثبت‌نام: ' + result.message);
+                }
+                
+            } catch (error) {
+                alert('❌ خطا در ارتباط با سرور');
+                console.error('Error:', error);
+            } finally {
+                // بازگرداندن دکمه به حالت عادی
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // مدیریت انتخاب حوزه‌های هنری
         document.addEventListener('DOMContentLoaded', function() {
             const artInterests = document.querySelectorAll('.art-interest');
             const selectedInterests = new Set();
+            const interestsInput = document.getElementById('artInterests');
             
             artInterests.forEach(button => {
                 button.addEventListener('click', function() {
@@ -239,26 +304,20 @@
                     
                     if (selectedInterests.has(value)) {
                         selectedInterests.delete(value);
-                        this.classList.remove('selected');
-                        this.classList.remove('bg-blue-600', 'text-white');
-                        // Reset icon color to black
+                        this.classList.remove('selected', 'bg-blue-600', 'text-white');
                         const icon = this.querySelector('svg');
                         icon.classList.remove('text-white');
                         icon.classList.add('text-black');
                     } else {
                         selectedInterests.add(value);
-                        this.classList.add('selected');
-                        this.classList.add('bg-blue-600', 'text-white');
+                        this.classList.add('selected', 'bg-blue-600', 'text-white');
                         this.classList.remove('hover:border-blue-500', 'hover:bg-blue-50');
-                        this.classList.remove('hover:border-black', 'hover:bg-gray-50');
-                        // Change icon color to white when selected
                         const icon = this.querySelector('svg');
                         icon.classList.remove('text-black');
                         icon.classList.add('text-white');
                     }
                     
-                    // Update hidden input
-                    document.getElementById('artInterests').value = Array.from(selectedInterests).join(',');
+                    interestsInput.value = Array.from(selectedInterests).join(', ');
                 });
             });
 
@@ -280,93 +339,6 @@
                 }
             });
         });
-
-
-<!-- قبل از بسته شدن تگ body -->
-<script>
-// آدرس اسکریپت رو اینجا بذار
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJ1LJzarygrxnDbXYflNbH5MOf5dPmGm87rghzRSPyTUFIZD1ZGLC2u3ULq2PerA/exec';
-
-document.querySelector('form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // جمع‌آوری داده‌ها
-    const formData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        artInterests: document.getElementById('artInterests').value
-    };
-    
-    // نمایش loading
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'در حال ثبت...';
-    submitBtn.disabled = true;
-    
-    try {
-        // ارسال به گوگل شیت
-        const response = await fetch(SCRIPT_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.status === 'success') {
-            alert('✅ ثبت‌نام با موفقیت انجام شد!');
-            window.location.href = 'login.html';
-        } else {
-            alert('❌ خطا در ثبت‌نام: ' + result.message);
-        }
-        
-    } catch (error) {
-        alert('❌ خطا در ارتباط با سرور');
-        console.error('Error:', error);
-    } finally {
-        // بازگرداندن دکمه به حالت عادی
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
-
-// مدیریت انتخاب حوزه‌های هنری
-document.addEventListener('DOMContentLoaded', function() {
-    const artInterests = document.querySelectorAll('.art-interest');
-    const selectedInterests = new Set();
-    const interestsInput = document.getElementById('artInterests');
-    
-    artInterests.forEach(button => {
-        button.addEventListener('click', function() {
-            const value = this.getAttribute('data-value');
-            
-            if (selectedInterests.has(value)) {
-                selectedInterests.delete(value);
-                this.classList.remove('selected', 'bg-blue-600', 'text-white');
-                const icon = this.querySelector('svg');
-                icon.classList.remove('text-white');
-                icon.classList.add('text-black');
-            } else {
-                selectedInterests.add(value);
-                this.classList.add('selected', 'bg-blue-600', 'text-white');
-                this.classList.remove('hover:border-blue-500', 'hover:bg-blue-50');
-                const icon = this.querySelector('svg');
-                icon.classList.remove('text-black');
-                icon.classList.add('text-white');
-            }
-            
-            interestsInput.value = Array.from(selectedInterests).join(', ');
-        });
-    });
-});
-
-
-        
     </script>
 
 </body>
