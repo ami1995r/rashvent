@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
-   <style>
+  <style>
     body {
         font-family: 'Vazirmatn', sans-serif;
     }
@@ -20,30 +20,32 @@
         scroll-behavior: smooth;
     }
     
-    /* استایل برای موبایل */
+    /* کاهش فاصله عمودی بین رویدادها در موبایل */
     @media (max-width: 768px) {
-        .min-w-\[300px\] {
-            min-width: 280px;
+        .mb-4 {
+            margin-bottom: 0.5rem !important;
         }
         
-        .overflow-x-auto {
-            -webkit-overflow-scrolling: touch;
+        #events .overflow-x-auto {
+            margin-bottom: 0.5rem !important;
         }
         
-        .flex.space-x-3 {
-            padding-bottom: 8px;
-        }
-    }
-
-    /* بهبود hover در موبایل */
-    @media (hover: none) {
-        .group:hover .group-hover\:bg-blue-500 {
-            background-color: inherit;
+        .pb-2 {
+            padding-bottom: 0.25rem !important;
         }
         
-        .group:active {
-            transform: scale(0.98);
-            transition: transform 0.1s;
+        /* کاهش فاصله داخلی کارت‌ها */
+        .group.relative.p-3 {
+            padding: 0.5rem !important;
+        }
+        
+        /* کاهش فاصله بین کارت‌ها در اسکرول افقی */
+        .space-x-3 {
+            gap: 0.5rem !important;
+        }
+        
+        .min-w-\[280px\] {
+            min-width: 250px !important;
         }
     }
 </style>
