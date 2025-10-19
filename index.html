@@ -55,8 +55,42 @@
         position: relative;
     }
     
-    .coming-soon::before {
-        content: "به‌زودی فعال می‌شود";
+    .coming-soon-theater::before {
+        content: "تئاتر تهران - به‌زودی فعال می‌شود";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        z-index: 20;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        white-space: nowrap;
+    }
+    
+    .coming-soon-concert::before {
+        content: "کنسرت - به‌زودی فعال می‌شود";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        z-index: 20;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        white-space: nowrap;
+    }
+    
+    .coming-soon-exhibition::before {
+        content: "نمایشگاه - به‌زودی فعال می‌شود";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -210,7 +244,7 @@
             <div class="overflow-x-auto pb-2">
                 <div class="flex space-x-3 space-x-reverse min-w-max">
                     <!-- رویداد 1 تهران -->
-                    <div class="group relative p-4 border border-gray-200 hover:border-indigo-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-indigo-50/30 hover:shadow-md cursor-pointer coming-soon">
+                    <div class="group relative p-4 border border-gray-200 hover:border-indigo-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-indigo-50/30 hover:shadow-md cursor-pointer coming-soon coming-soon-theater">
                         <div class="relative z-10 flex items-start gap-4">
                             <div class="text-center bg-white group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 rounded-lg p-3 w-16 flex-shrink-0 shadow-sm border">
                                 <p class="text-xs group-hover:text-white/90">مهر</p>
@@ -285,7 +319,7 @@
     <div class="overflow-x-auto pb-2 mb-3">
         <div class="flex space-x-3 space-x-reverse min-w-max">
             <!-- رویداد 1 -->
-            <div class="group relative p-4 border border-gray-200 hover:border-green-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-green-50/30 hover:shadow-md cursor-pointer coming-soon">
+            <div class="group relative p-4 border border-gray-200 hover:border-green-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-green-50/30 hover:shadow-md cursor-pointer coming-soon coming-soon-concert">
                 <div class="relative z-10 flex items-start gap-4">
                     <div class="text-center bg-white group-hover:bg-green-500 group-hover:text-white transition-all duration-300 rounded-lg p-3 w-16 flex-shrink-0 shadow-sm border">
                         <p class="text-xs group-hover:text-white/90">آبان</p>
@@ -295,7 +329,7 @@
                     <div class="flex-1">
                         <span class="inline-block px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 mb-2">کنسرت</span>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">کنسرت «دامون»</h3>
-                        <p class="text-sm text-gray-700 mb-1">خواننده: مجید  </p>
+                        <p class="text-sm text-gray-700 mb-1">خواننده: مجید خامسی </p>
                         <div class="flex items-center gap-1 text-xs text-gray-600">
                             <span>سالن مرکزی</span>
                             <span>|</span>
@@ -311,7 +345,7 @@
     <div class="overflow-x-auto pb-2">
         <div class="flex space-x-3 space-x-reverse min-w-max">
             <!-- رویداد 1 -->
-            <div class="group relative p-4 border border-gray-200 hover:border-purple-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-purple-50/30 hover:shadow-md cursor-pointer coming-soon">
+            <div class="group relative p-4 border border-gray-200 hover:border-purple-300 transition-all duration-300 rounded-xl min-w-[300px] bg-white hover:bg-purple-50/30 hover:shadow-md cursor-pointer coming-soon coming-soon-exhibition">
                 <div class="relative z-10 flex items-start gap-4">
                     <div class="text-center bg-white group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 rounded-lg p-3 w-16 flex-shrink-0 shadow-sm border">
                         <p class="text-xs group-hover:text-white/90">آبان</p>
@@ -321,9 +355,9 @@
                     <div class="flex-1">
                         <span class="inline-block px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 mb-2">نمایشگاه</span>
                         <h3 class="text-lg font-bold text-gray-900 mb-1">«رنگ‌های شمال»</h3>
-                        <p class="text-sm text-gray-700 mb-1">هنرمند: رضا  </p>
+                        <p class="text-sm text-gray-700 mb-1">هنرمند: رضا دولتی </p>
                         <div class="flex items-center gap-1 text-xs text-gray-600">
-                            <span>نگارخانه مارلیк</span>
+                            <span>نگارخانه مارلیک</span>
                             <span>|</span>
                             <span>تا ۱۰ شهریور</span>
                         </div>
