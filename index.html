@@ -632,19 +632,26 @@
         </div>
     </footer>
 
-    <!-- اسکریپت تب‌بار تئاتر -->
-    <script>
-        // تب‌بار تئاتر - نسخه مینیمال
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+<!-- اسکریپت تب‌بار یکپارچه -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // پیدا کردن همه تب‌بارهای صفحه
+        const tabContainers = document.querySelectorAll('.mb-4');
+        
+        tabContainers.forEach(container => {
+            const tabButtons = container.querySelectorAll('.tab-button');
+            const tabContents = container.querySelectorAll('.tab-content');
             
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const targetTab = button.getAttribute('data-tab');
                     
-                    // حذف استایل فعال از همه دکمه‌ها
-                    tabButtons.forEach(btn => {
+                    // فقط تب‌های همین کانتینر را مدیریت کن
+                    const containerTabButtons = container.querySelectorAll('.tab-button');
+                    const containerTabContents = container.querySelectorAll('.tab-content');
+                    
+                    // حذف استایل فعال از همه دکمه‌های همین کانتینر
+                    containerTabButtons.forEach(btn => {
                         btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
                         btn.classList.add('text-gray-600');
                     });
@@ -653,17 +660,26 @@
                     button.classList.add('bg-white', 'text-gray-800', 'shadow-sm');
                     button.classList.remove('text-gray-600');
                     
-                    // مخفی کردن همه تب‌ها
-                    tabContents.forEach(content => {
+                    // مخفی کردن همه تب‌های همین کانتینر
+                    containerTabContents.forEach(content => {
                         content.classList.add('hidden');
                     });
                     
-                    // نمایش تب انتخاب شده
-                    document.getElementById(`tab-${targetTab}`).classList.remove('hidden');
+                    // نمایش تب انتخاب شده در همین کانتینر
+                    const targetContent = container.querySelector(`#tab-${targetTab}`);
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
                 });
             });
         });
-    </script>
+    });
+</script>
+
+
+
+
+    
 
     <!-- اسکریپت محاسبه تاریخ اخبار -->
     <script>
@@ -727,41 +743,6 @@
             document.getElementById('day-8').textContent = currentDay + 2;
         });
     </script>
-<!-- اسکریپت تب‌بار سینما -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cinemaContainer = document.querySelector('.mb-4'); // کانتینر اصلی سینما
-        
-        if (cinemaContainer) {
-            const cinemaTabButtons = cinemaContainer.querySelectorAll('.tab-button[data-tab^="cinema-"]');
-            const cinemaTabContents = cinemaContainer.querySelectorAll('.tab-content[id^="tab-cinema-"]');
-            
-            cinemaTabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-                    
-                    // حذف استایل فعال از همه دکمه‌های سینما
-                    cinemaTabButtons.forEach(btn => {
-                        btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
-                        btn.classList.add('text-gray-600');
-                    });
-                    
-                    // اضافه کردن استایل فعال به دکمه کلیک شده
-                    button.classList.add('bg-white', 'text-gray-800', 'shadow-sm');
-                    button.classList.remove('text-gray-600');
-                    
-                    // مخفی کردن همه تب‌های سینما
-                    cinemaTabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-                    
-                    // نمایش تب انتخاب شده سینما
-                    document.getElementById(`tab-${targetTab}`).classList.remove('hidden');
-                });
-            });
-        }
-    });
-</script>
-    
+
 </body>
 </html>
