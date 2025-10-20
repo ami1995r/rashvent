@@ -731,13 +731,12 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const cinemaTabButtons = document.querySelectorAll('.tab-button[data-tab^="cinema-"]');
-        const cinemaTabContents = document.querySelectorAll('.tab-content[id^="tab-cinema-"]');
         
         cinemaTabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const targetTab = button.getAttribute('data-tab');
                 
-                // حذف استایل فعال از همه دکمه‌ها
+                // حذف استایل فعال از همه دکمه‌های سینما
                 cinemaTabButtons.forEach(btn => {
                     btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
                     btn.classList.add('text-gray-600');
@@ -747,12 +746,13 @@
                 button.classList.add('bg-white', 'text-gray-800', 'shadow-sm');
                 button.classList.remove('text-gray-600');
                 
-                // مخفی کردن همه تب‌ها
+                // مخفی کردن فقط تب‌های سینما
+                const cinemaTabContents = document.querySelectorAll('[id^="tab-cinema-"]');
                 cinemaTabContents.forEach(content => {
                     content.classList.add('hidden');
                 });
                 
-                // نمایش تب انتخاب شده
+                // نمایش تب انتخاب شده سینما
                 document.getElementById(`tab-${targetTab}`).classList.remove('hidden');
             });
         });
